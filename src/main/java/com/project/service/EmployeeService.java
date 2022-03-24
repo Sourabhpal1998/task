@@ -26,6 +26,7 @@ public class EmployeeService implements EmployeeInterface {
 	  private EmployeeRepository employeeRepository;
 	  
 	  
+	  
 	  @Override
 	  public void saveDto(EmployeeDto employeeDto) {
 	  EmployeeDetails employeeDetails = new EmployeeDetails();
@@ -48,9 +49,27 @@ public class EmployeeService implements EmployeeInterface {
 	  employeeDetails.setDepartmentDetails(departmentDetails);
 	  employeeRepository.save(employeeDetails);
 	  
-	  
-	  
-	  
 	  }
+
+
+
+	  
+	  
+	  @Override
+	  public List<EmployeeDetails> findAll(){
+		  List<EmployeeDetails> employeeDetails = employeeRepository.findAll();
+		  return employeeDetails;
+	  }
+	  
+	  
+	  public EmployeeDetails findByName(String name) {
+		  EmployeeDetails employeeDetails = employeeRepository.findByName(name);
+		  return employeeDetails;
+	  }
+	  
+	 
+
+
+
 	  
 }
